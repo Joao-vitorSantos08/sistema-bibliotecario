@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gestão de Editoras</title>
+<link rel="stylesheet" href="/style/editora.css">
+</head>
+<body>
+
+	<div class="main-container">
+
+		<header class="admin-header">
+			<span class="admin-badge">Painel Administrativo / Parceiros</span>
+			<h1 class="livro-titulo">Editoras Parceiras</h1>
+		</header>
+
+		<div class="content-grid">
+			<aside class="sidebar">
+				<h2 class="sub-titulo">Nova Editora</h2>
+				
+				<form th:action="@{/editora/salvar}" method="post"
+					th:object="${editora}">
+					<div class="form-group">
+						<label>Nome da Instituição</label> 
+						<input th:field="*{editora}" placeholder="Ex: Editora Record" required>
+						<p th:if="${#fields.hasErrors('editora')}" th:errors="*{editora}"
+							class="error-msg"></p>
+					</div>
+					
+					<button type="submit" class="btn-submit">Cadastrar Editora</button>
+					
+				</form>
+			</aside>
+
+			<main class="main-list">
+				<div class="list-header">
+				
+					<h2 class="sub-titulo">Editoras no Sistema</h2>
+				</div>
+
+				<table class="table-minimal">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th class="text-end">Gerenciar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="e : ${editoras}">
+							<td class="fw-bold" th:text="${e.editora}">Nome da Editora</td>
+							<td class="text-end"><a
+								th:href="@{/editora/excluir/{id}(id=${e.id})}"
+								class="btn-delete"
+								onclick="return confirm('Deseja remover esta editora?')">Remover</a>
+							</td>
+						</tr>
+						<tr th:if="${#lists.isEmpty(editoras)}">
+							<td colspan="2" class="empty-msg">Nenhuma editora
+								cadastrada.</td>
+						</tr>
+					</tbody>
+				</table>
+			</main>
+		</div>
+	</div>
+
+</body>
+</html>

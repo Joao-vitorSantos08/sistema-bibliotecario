@@ -1,0 +1,128 @@
+@charset "UTF-8";
+@import url('https://googleapis.com');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #000;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.logout-form {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.btn-sair {
+    background: transparent;
+    color: #000;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-sair:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+
+.home-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.home-header {
+    margin-bottom: 60px;
+}
+
+.admin-badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #1a8917;
+}
+
+.home-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin: 10px 0;
+}
+
+.home-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+
+.home-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.home-card {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    padding: 30px;
+    border: 2px solid #000;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.home-card:hover {
+    background-color: #000;
+    color: #fff;
+    transform: translateX(10px);
+}
+
+.card-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-right: 30px;
+    font-family: 'Playfair Display', serif;
+}
+
+.card-info {
+    flex-grow: 1;
+}
+
+.card-info h2 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.card-info p {
+    margin: 5px 0 0 0;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.card-arrow {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.home-footer {
+    margin-top: 60px;
+    font-size: 0.8rem;
+    color: #999;
+}

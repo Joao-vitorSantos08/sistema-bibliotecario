@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Obra | Sistema Bibliotecário</title>
+    <link rel="stylesheet" type="text/css" href="/styleForm/livro_form.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <header class="form-header">
+            <span class="admin-badge">Gestão de Acervo</span>
+            <h1 class="livro-titulo">Registrar Nova Obra</h1>
+        </header>
+
+        <form th:action="@{/livro/salvar}" method="post" th:object="${livro}" class="form-editorial">
+            
+            
+            <div class="form-group">
+                <label>Título da Obra</label> 
+                <input th:field="*{titulo}" placeholder="Ex: Dom Casmurro" class="input-line"> 
+                <span class="error-msg" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></span>
+            </div>
+
+           
+            <div class="form-group">
+                <label>Ano de Lançamento</label> 
+                <input th:field="*{ano_publicacao}" placeholder="AAAA" class="input-line">
+                <span class="error-msg" th:if="${#fields.hasErrors('ano_publicacao')}" th:errors="*{ano_publicacao}"></span>
+            </div>
+
+         
+            <div class="form-group">
+                <label>Editora Responsável</label> 
+                <select th:field="*{editora}" class="select-line">
+                    <option value="">Selecione a Editora</option>
+                    <option th:each="e : ${editoras}" th:value="${e.id}" th:text="${e.editora}"></option>
+                </select> 
+                <span class="error-msg" th:if="${#fields.hasErrors('editora')}" th:errors="*{editora}"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label>Autores (Segure CTRL para selecionar vários)</label> 
+                <select th:field="*{autores}" multiple="multiple" class="select-line multiple-select">
+                    <option th:each="a : ${autores}" th:value="${a.id}" th:text="${a.nome}"></option>
+                </select> 
+                <span class="error-msg" th:if="${#fields.hasErrors('autores')}" th:errors="*{autores}"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Especificações / ISBN</label> 
+                <select th:field="*{detalhelivro}" class="select-line">
+                    <option value="" th:text="${#lists.isEmpty(detalhes)} ? 'Nenhum detalhe cadastrado. Cadastre um primeiro!' : 'Selecione um detalhe técnico'"> </option>
+                    <option th:each="d: ${detalhes}" th:value="${d.id}" th:text="${d.detalhes}"></option>
+                </select> 
+                <span class="error-msg" th:if="${#fields.hasErrors('detalhelivro')}" th:errors="*{detalhelivro}"></span>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-salvar">Salvar Livro na Estante</button>
+                <a th:href="@{/livro}" class="btn-cancelar">Cancelar</a>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

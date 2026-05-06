@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Painel Administrativo | Biblioteca</title>
+<link rel="stylesheet" type="text/css" th:href="@{/style/index.css}">
+</head>
+<body>
+
+	<form th:action="@{/logout}" method="post" class="logout-form">
+		<button type="submit" class="btn-sair">Sair</button>
+	</form>
+
+
+	<div class="home-container">
+		<header class="home-header">
+			<span class="admin-badge">Plataforma de Gestão</span>
+			<h1 class="home-title">Acervo Literário</h1>
+			<p class="home-subtitle">Selecione o módulo que deseja gerenciar
+				abaixo.</p>
+		</header>
+
+		<nav class="home-nav">
+			<a th:href="@{/livro}" class="home-card"> <span
+				class="card-number">01</span>
+				<div class="card-info">
+					<h2>Livros</h2>
+					<p>Gestão completa de títulos e estoque.</p>
+				</div> <span class="card-arrow">→</span>
+			</a> <a th:href="@{/autor}" class="home-card"> <span
+				class="card-number">02</span>
+				<div class="card-info">
+					<h2>Autores</h2>
+					<p>Cadastro e vínculo de escritores.</p>
+				</div> <span class="card-arrow">→</span>
+			</a> <a th:href="@{/detalheslivro}" class="home-card"> <span
+				class="card-number">03</span>
+				<div class="card-info">
+					<h2>Detalhes</h2>
+					<p>Especificações técnicas e ISBN.</p>
+				</div> <span class="card-arrow">→</span>
+			</a> <a th:href="@{/editora}" class="home-card"> <span
+				class="card-number">04</span>
+				<div class="card-info">
+					<h2>Editoras</h2>
+					<p>Controle de empresas parceiras.</p>
+				</div> <span class="card-arrow">→</span>
+			</a> <a th:href="@{/homecliente/livraria}"
+				class="home-card view-client-card"> <span class="card-number">05</span>
+				<div class="card-info">
+					<h2>Visão do Cliente</h2>
+					<p>Acesse a interface pública para conferir como os livros
+						aparecem para o usuário.</p>
+				</div> <span class="card-arrow">👁️</span>
+			</a>
+
+		</nav>
+
+		<footer class="home-footer">
+			<p>&copy; 2026 Sistema de Biblioteca Digital - Modo
+				Administrativo</p>
+		</footer>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Aviso do Sistema | Biblioteca</title>
+    <!-- Link para o seu CSS local -->
+    <link rel="stylesheet" th:href="@{/style/erro.css}">
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <header class="error-header">
+            <span class="admin-badge">Status do Sistema</span>
+            <h1 class="livro-titulo" th:text="${mensagem ?: 'Atenção'}">Aviso</h1>
+        </header>
+
+     
+        <div class="error-card" th:if="${entidadeOrfa != null or registroDuplicado != null or personalizacao != null}">
+            
+            <div class="card-content">
+             
+                <h2 th:text="${entidadeOrfa ?: registroDuplicado ?: 'Erro de Validação'}"></h2>
+                
+        
+                <p th:if="${personalizacao != null}" th:text="${personalizacao}"></p>
+            </div>
+
+        </div>
+
+        <footer class="error-footer">
+            <a th:href="@{/home}" class="btn-voltar">← Voltar para a Página Inicial</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>

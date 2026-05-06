@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Acesso Negado | Biblioteca</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/style/acesso-negado.css}">
+</head>
+<body>
+
+    <div class="home-container">
+        <header class="home-header">
+            <span class="admin-badge" style="color: #f43f5e; border-color: #f43f5e;">Erro 403z</span>
+            <h1 class="home-title" style="color: #f43f5e;">Acesso Negado</h1>
+            <p class="home-subtitle">
+                Seu usuário está autenticado, mas não possui as permissões <br>
+                necessárias para acessar esta funcionalidade.
+            </p>
+        </header>
+
+        <nav class="home-nav">
+            <a th:href="@{/home}" class="home-card">
+                <span class="card-number">!</span>
+                <div class="card-info">
+                    <h2>Retornar ao Início</h2>
+                    <p>Volte para o painel principal de gestão.</p>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+        </nav>
+
+        <form th:action="@{/logout}" method="post" style="margin-top: 40px;">
+            <button type="submit" class="btn-sair">Sair do Sistema</button>
+        </form>
+
+        <footer class="home-footer">
+            <p>&copy; 2026 Sistema de Biblioteca Digital - Segurança</p>
+        </footer>
+    </div>
+
+</body>
+</html>

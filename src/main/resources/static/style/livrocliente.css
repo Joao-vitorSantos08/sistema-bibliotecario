@@ -1,0 +1,129 @@
+@charset "UTF-8";
+/* Importação corrigida das fontes para o navegador */
+@import url('https://googleapis.com');
+
+:root {
+	--primary: #4f46e5;
+	--success: #10b981; 
+	--danger: #f43f5e; 
+	--background: #f8fafc;
+	--card: #ffffff;
+	--text: #1e293b;
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+	background-color: var(--background);
+	color: var(--text);
+	margin: 0;
+	padding: 40px 20px;
+}
+
+.main-container {
+	max-width: 1140px;
+	margin: 0 auto;
+	background: var(--card);
+	padding: 40px;
+	border-radius: 20px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); 
+}
+
+h1, .livro-titulo {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 800;
+	color: var(--text);
+	letter-spacing: -0.02em;
+}
+
+.rota {
+	display: flex;
+	justify-content: space-between;
+}
+
+.admin-badge {
+	background: #e0e7ff;
+	color: var(--primary);
+	padding: 6px 12px;
+	border-radius: 30px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0 8px; 
+	margin-top: 30px;
+}
+
+.table thead th {
+	color: #64748b;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	padding: 12px 20px;
+	text-align: left;
+	border: none;
+}
+
+.table tbody tr {
+	background-color: #ffffff;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.table tbody td {
+	padding: 20px;
+	border-top: 1px solid #f1f5f9;
+	border-bottom: 1px solid #f1f5f9;
+}
+
+.table tbody td:first-child {
+	border-left: 1px solid #f1f5f9;
+	border-radius: 12px 0 0 12px;
+}
+
+.table tbody td:last-child {
+	border-right: 1px solid #f1f5f9;
+	border-radius: 0 12px 12px 0;
+}
+
+.isbn-text {
+	color: var(--primary);
+	font-weight: 700;
+	font-size: 0.9rem;
+}
+
+.separador {
+	color: #cbd5e1;
+	margin: 0 8px;
+}
+
+.btn-novo {
+	background: linear-gradient(135deg, var(--primary), var(--success));
+	color: white !important;
+	border-radius: 12px;
+	padding: 12px 28px;
+	text-decoration: none;
+	font-weight: 700;
+	transition: 0.3s;
+	display: inline-block;
+	border: none;
+}
+
+.btn-novo:hover {
+	filter: brightness(1.1);
+	box-shadow: 0 8px 15px rgba(16, 185, 129, 0.3);
+}
+
+.btn-link.text-danger {
+	color: var(--danger) !important;
+	font-weight: 700;
+	text-decoration: none;
+	padding: 8px 12px;
+	border-radius: 8px;
+}
+
+.btn-link.text-danger:hover {
+	background: #fff1f2;
+}

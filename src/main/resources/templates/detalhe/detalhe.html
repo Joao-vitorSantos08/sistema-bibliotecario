@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Acervo de Detalhes Técnicos</title>
+    <link rel="stylesheet" type="text/css" href="/style/detalhe.css">
+</head>
+<body>
+
+    <div class="main-container">
+      
+        <header class="admin-header border-bottom pb-4 mb-5">
+            <span class="admin-badge">Área Técnica / Gestão de Especificações</span>
+            <div class="header-flex">
+                <h1 class="livro-titulo mt-2">Tabela de Detalhes</h1>
+                
+                <div class="rota">
+                
+                <a th:href="@{/home}" class="btn-novo">voltar para página inicial</a>
+                <a th:href="@{/detalheslivro/novo}" class="btn-novo">Novo Detalhe</a>
+                </div>
+                
+                </div>
+        </header>
+
+      
+        <table class="table-minimal">
+            <thead>
+                <tr>
+                    <th>Resumo / Detalhes</th>
+                    <th>ISBN</th>
+                    <th>Páginas</th>
+                    <th class="text-end">Gerenciar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="e : ${detalhes}">
+                    <td class="resumo-col" th:text="${e.detalhes}"></td>
+                    <td class="isbn-text" th:text="${e.isbn}"></td>
+                    <td th:text="${e.npaginas + ' págs'}"></td>
+                    <td class="text-end">
+                        <a th:href="@{/detalheslivro/excluir/{id}(id=${e.id})}" 
+                           class="btn-delete"
+                           onclick="return confirm('Excluir este detalhe permanentemente?')">Remover</a>
+                    </td>
+                </tr>
+             
+                <tr th:if="${#lists.isEmpty(detalhes)}">
+                    <td colspan="4" style="text-align: center; padding: 50px; color: #777;">
+                        Nenhum detalhe técnico cadastrado.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Painel Administrativo | Biblioteca</title>
+<link href="https://googleapis.com" rel="stylesheet">
+<link rel="stylesheet" th:href="@{/style/livro.css}">
+</head>
+<body>
+	<div class="main-container">
+		<header class="admin-header">
+			<div>
+				<span class="admin-badge">Gestão de Acervo</span>
+				<h1 class="livro-titulo">Biblioteca Administrativa</h1>
+			</div>
+			<div class="rota">
+					<a th:href="@{/livro/novolivro}" class="btn-novo">Cadastrar NovoLivro</a>
+					<a th:href="@{/home}" class="btn-novo">Voltar pará página Inicial</a>
+			</div>
+		</header>
+
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Obra / Resumo</th>
+						<th>Editora</th>
+						<th>Autores</th>
+						<th>ISBN</th>
+						<th>Páginas</th>
+						<th class="text-end">Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="l : ${livros}">
+						<td style="max-width: 300px;">
+							<div class="obra-nome" th:text="${l.titulo}">Título</div> <small
+							class="text-resumo" th:text="${l.detalhelivro?.detalhes}">Resumo...</small>
+						</td>
+
+						<td><span class="badge-editora"
+							th:text="${l.editora?.editora}"></span></td>
+
+						<td>
+							<div th:each="a : ${l.autores}">
+								<span class="autor-nome" th:text="${a.nome}"></span>
+							</div>
+						</td>
+
+						<td class="isbn-text" th:text="${l.detalhelivro?.isbn}"></td>
+
+						<td><span class="badge-paginas"
+							th:text="${l.detalhelivro?.npaginas}"></span></td>
+
+						<td class="text-end"><a
+							th:href="@{/livro/excluir/{id}(id = ${l.id})}"
+							class="btn-excluir"
+							onclick="return confirm('Deseja remover esta obra?')">Remover</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

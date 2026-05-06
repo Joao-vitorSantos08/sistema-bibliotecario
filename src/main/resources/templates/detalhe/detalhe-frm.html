@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Detalhe do Livro</title>
+    <link rel="stylesheet" type="text/css" href="/styleForm/detalhe_form.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <header class="admin-header border-bottom pb-4 mb-5">
+            <span class="admin-badge">Área Técnica / Cadastro de Especificações</span>
+            <h1 class="livro-titulo mt-2">Insira um novo Detalhe</h1>
+        </header>
+
+
+        <form th:action="@{/detalheslivro/salvar}" method="post" th:object="${detalhe}" class="form-container">
+            
+            <div class="form-group mb-4">
+                <label>Descrição Técnica / Resumo</label>
+                <input th:field="*{detalhes}" placeholder="Ex: Romance clássico brasileiro..." class="form-control-custom">
+                <p th:if="${#fields.hasErrors('detalhes')}" th:errors="*{detalhes}" style="color: red; font-size: 0.8rem; margin-top: 5px;"></p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label>Código ISBN</label>
+                    <input th:field="*{isbn}" placeholder="Somente números" class="form-control-custom">
+                    <p th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" style="color: red; font-size: 0.8rem; margin-top: 5px;"></p>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <label>Quantidade de Páginas</label>
+                    <input th:field="*{npaginas}" placeholder="Ex: 320" class="form-control-custom">
+                    <p th:if="${#fields.hasErrors('npaginas')}" th:errors="*{npaginas}" style="color: red; font-size: 0.8rem; margin-top: 5px;"></p>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <button type="submit" class="btn-novo border-0">Salvar Especificações</button>
+                <a th:href="@{/detalheslivro}" class="btn-link text-dark ms-3 fw-bold text-decoration-none">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

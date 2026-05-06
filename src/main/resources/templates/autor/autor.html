@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão de Autores | Minimalista</title>
+    
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style/autor.css">
+
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <header>
+            <span class="admin-label">Gerenciamento Administrativo</span>
+            <h1>Escritores</h1>
+            <a th:href="@{/home}" >voltar para página inicial</a>
+        </header>
+
+        <div class="content-grid">
+   
+            <aside class="sidebar">
+                <h2 style="margin-bottom: 20px; font-family: 'Playfair Display';">Novo Registro</h2>
+                <form th:action="@{/autor/salvar}" method="post" th:object="${autor}">
+                    <div class="form-group">
+                        <label>Nome do Autor</label>
+                        <input th:field="*{nome}" placeholder="Ex: Jane Austen" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Salvar Autor</button>
+                </form>
+            </aside>
+
+
+            <main class="main-list">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px;">
+                    <h2 style="font-family: 'Playfair Display';">Autores no Acervo</h2>
+                    <span class="counter" th:text="${autores.size()}">0</span>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th class="text-end">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="a : ${autores}">
+                            <td th:text="${a.nome}">Nome do Autor</td>
+                            <td class="text-end">
+                                <a th:href="@{/autor/excluir/{id}(id=${a.id})}" 
+                                   class="btn-delete"
+                                   onclick="return confirm('Excluir permanentemente?')">Remover</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
