@@ -11,6 +11,7 @@
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-autor">Autor</a> • 
  <a href="#user-content--licença">Licença</a>
+<a href="#Popular-o-Banco-de-Dados">Popular o Banco de Dados</a>
 </p>
 
 ## Sobre o Projeto
@@ -123,6 +124,7 @@ O projeto possui um script SQL com dados prontos para testes.
 Clique no arquivo abaixo para acessar:
 
 [database/populacao_banco.sql](populacao_banco.sql)
+Depois de abrir, copie o conteúdo e cole no seu banco de dados para executar o script.
 
 
 ## Tecnologias
