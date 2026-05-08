@@ -1,5 +1,5 @@
 <h1 align="center"> 
-	  🚀✅ { sistema-bibliotecario} - Concluído ✅🚀
+	  🚀✅ sistema-bibliotecario - Concluído ✅🚀
 </h1>
 
 <p align="center">
